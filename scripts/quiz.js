@@ -4,9 +4,6 @@
 
 const QUIZ = (function() {
 
-  //let questionIndex = 0;
-  //let score = 0;
-
   function gradeAnswer() {
     scoreAnswer();	
     DATA.questionIndex += 1;
