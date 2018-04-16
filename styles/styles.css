@@ -1,0 +1,196 @@
+@font-face {
+	font-family: "star trek";
+	src: url(../fonts/montalban.otf);
+}
+
+body {
+	background-color: black;
+  background-image:
+	radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 10px),
+	radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 5px),
+	radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 10px),
+	radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 5px),
+	radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 10px),
+	radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 5px);
+	background-size: 750px 750px, 550px 550px, 450px 450px, 350px 350px, 250px 250px, 150px 150px;
+	background-position: 0 0, 40px 60px, 130px 270px, 70px 100px, 110px 200px;
+	background-image: repeat-x;	
+	font-family: Helvetica, sans-serif;
+	color: #ffffff;
+	text-align: center;
+}
+
+header img {
+  width: 75%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: "star trek", Helvetica, sans-serif;
+  font-size: 1.2em;
+  color: #F7CE38;
+}
+
+h2, h3 {
+	line-height: 1.3em;
+	font-size: 1.2em;
+}
+
+span {
+	display: block;
+	line-height: 1.3em;
+	font-size: 1.2em;
+}
+
+.score {
+	display: inline-block;
+}
+
+.answers {
+	width: 80%;
+	margin: 20px 65% 0px 35%;
+}
+
+li {
+	margin: 10px 0;
+	text-align: left;
+}
+
+button {
+	width: 250px;
+  margin: 30px 0;
+	padding: 15px 0;	
+	background-color: #F7CE38;
+	font-size: 1em;
+	font-weight: bold;
+	border-color: #F7CE38;
+	border-radius: 6px;
+}
+
+img,
+button {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+label,
+button,
+input[type="radio"] {
+	cursor: pointer;
+}
+
+.next-submit {
+	background-color: #52965B;
+	border-color: #52965B;
+	border-radius: 6px;
+}
+
+.end-submit {
+	background-color: #E84C3D;
+	border-color: #E84C3D;
+}
+
+.view-screen {
+  width: 80%;
+  margin-bottom: 25px;
+  border-radius: 25px;
+}
+
+.question {
+	width: 75%;
+  padding: 10px;
+  margin:  25px auto;
+	position: relative;
+	background: #D9D9D9;
+	border-radius: .4em;
+	color: #000000;
+}
+
+.question:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+
+	border: 1.844em solid transparent;
+	border-top-color: #D9D9D9;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -0.922em;
+	margin-bottom: -0.9em;
+	z-index: -1;
+}
+
+.results {
+	margin-top: 30px;
+}
+
+/* Non-mobile */
+@media only screen and (min-width: 640px) {
+
+	header img {
+	  width: 30%;
+	}
+
+	h1 {
+	  margin-bottom: 50px;
+	  font-size: 1.8em;
+	}
+
+	.question {
+		width: 30%;
+	}
+
+	.view-screen {
+	  width: 33%;
+	}
+	
+	.float-left .question {
+		width: 75%;
+	}
+
+	.float-left img {
+		width: 80%;
+	}
+
+	.answers {
+	  width: 80%;
+	}
+
+	.float-right {
+	  float: right;
+	  margin-right: 15%;
+	  width: 33%;
+	}
+
+	.float-left{		
+	  float: left;
+	  margin-left: 15%;
+	  width: 33%;
+	}
+
+	button {
+		width: 200px;
+		padding: 10px 0;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+
+	li {
+		margin: 15px 0;
+	}
+
+	.float-right {
+		margin-right: 15%;
+	}
+
+	button {
+		width: 250px;
+		padding: 15px 0;
+	}
+}
