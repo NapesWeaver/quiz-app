@@ -4,12 +4,20 @@
 
 const TEMPLATE = (function() {
 
-  function createMultipleChoice() {
-    return DATA.questions[DATA.questionIndex].answers.map(answer => 
-      `<li>
-					<input type="radio" id="${answer}" name="${answer}" required="required">			     
-					<label for="${answer}">${answer}</label>
-				</li>`).join('');
+  function createEnd(message) {
+    return `
+			<form class="question-answer-form">
+				<h2 class="question">${message}</h2>
+				<img src="${DATA.questions[DATA.questionIndex].image.source}" class="view-screen" alt="${DATA.questions[DATA.questionIndex].image.alt}">
+	
+				<div class="results">
+					<h3>Question ${DATA.questionIndex + 1} of ${DATA.questions.length}</h3>
+					<span>You have <span class="score">${DATA.score}</span> out of ${DATA.questions.length} correct</span>		
+				</div>
+				
+				<button class="end-submit" type="submit">END</button>
+			</form>
+		`;
   }
 	
   function createQuestion() {
@@ -18,15 +26,16 @@ const TEMPLATE = (function() {
 				<div class="float-left">
 					<h2 class="question">${DATA.questions[DATA.questionIndex].question}</h2>
 					<img src="${DATA.questions[DATA.questionIndex].image.source}" class="view-screen" alt="${DATA.questions[DATA.questionIndex].image.alt}">
-				</div>
-				
-				<div class="float-right">
-					<div class="results">
-						<h3>Question ${DATA.questionIndex + 1} of ${DATA.questions.length}</h3>
+					<div class="results">						
 						<span>You have <span class="score">${DATA.score}</span> out of ${DATA.questions.length} correct</span>		
 					</div>
-					<fieldset class="answers">			
-						<ul>
+
+				</div>
+				
+				<div class="float-right">					
+					<fieldset>
+						<legend>Question ${DATA.questionIndex + 1} of ${DATA.questions.length}</legend>	
+						<ul class="answers">
 							${createMultipleChoice()}
 						</ul>
 					</fieldset>
@@ -34,6 +43,14 @@ const TEMPLATE = (function() {
 				</div>
 			</form>
 		`;
+  }
+	
+  function createMultipleChoice() {
+    return DATA.questions[DATA.questionIndex].answers.map(answer => 
+      `<li>
+					<input type="radio" id="${answer}" name="answer" required="required">			     
+					<label for="${answer}">${answer}</label>
+				</li>`).join('');
   }
 	
   function createResults(message) {
@@ -62,28 +79,12 @@ const TEMPLATE = (function() {
 		`;
   }
 	
-  function createEnd(message) {
-    return `
-			<form class="question-answer-form">
-				<h2 class="question">${message}</h2>
-				<img src="${DATA.questions[DATA.questionIndex].image.source}" class="view-screen" alt="${DATA.questions[DATA.questionIndex].image.alt}">
-	
-				<div class="results">
-					<h3>Question ${DATA.questionIndex + 1} of ${DATA.questions.length}</h3>
-					<span>You have <span class="score">${DATA.score}</span> out of ${DATA.questions.length} correct</span>		
-				</div>
-				
-				<button class="end-submit" type="submit">END</button>
-			</form>
-		`;
-  }
-	
   return {
+    createEnd,
     createQuestion,
     createMultipleChoice,
     createResults,
     createStart,
-    createEnd,
   };
 }());
 
