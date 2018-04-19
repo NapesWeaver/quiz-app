@@ -7,7 +7,7 @@ const TEMPLATE = (function() {
   function createMultipleChoice() {
     return DATA.questions[DATA.questionIndex].answers.map(answer => 
       `<li>
-					<input type="radio" id="${answer}" name="answer" required="required">			     
+					<input type="radio" id="${answer}" name="${answer}" required="required">			     
 					<label for="${answer}">${answer}</label>
 				</li>`).join('');
   }
