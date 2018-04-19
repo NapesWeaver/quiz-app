@@ -5,5 +5,5 @@
 $(document).ready(function() {
   QUIZ.preloadImage();
   QUIZ.randomizeQuestions();  
-  QUIZ.handleAnswerSubmit();
+  QUIZ.handleSubmit();
 });

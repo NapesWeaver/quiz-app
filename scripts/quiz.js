@@ -9,19 +9,19 @@ const QUIZ = (function() {
     DATA.questionIndex += 1;
   }
 
-  function handleAnswerSubmit() {	
-    $('.question-answer-form').submit(event => {	
-      event.preventDefault();  
-
-      if ($(':submit').hasClass('start-submit') || $(':submit').hasClass('next-submit')) {
-        writeQuestion();
-      } else if ($(':submit').hasClass('answer-submit')) {
-        gradeAnswer();
-      }
-      else {
-        resetGame();
-      }    
-    });
+  function handleSubmit() {
+    $('.page').on('submit', '.next-form', (event => {
+      event.preventDefault();
+      writeQuestion();
+    }));
+    $('.page').on('submit', '.question-form', (event => {
+      event.preventDefault();
+      gradeAnswer();
+    }));
+    $('.page').on('submit', '.end-form', (event => {
+      event.preventDefault();
+      resetGame();
+    }));
   }
 
   function preloadImage() {
@@ -39,7 +39,7 @@ const QUIZ = (function() {
     DATA.score = 0;
     DATA.questionIndex = 0;
     randomizeQuestions();
-    $('.question-answer-form').html(TEMPLATE.createStart());
+    $('.page').html(TEMPLATE.createStart());
   }
   
   function scoreAnswer() {
@@ -52,18 +52,18 @@ const QUIZ = (function() {
     }
   
     if (DATA.questionIndex < DATA.questions.length - 1) {
-      $('.question-answer-form').html(TEMPLATE.createResults(message));
+      $('.page').html(TEMPLATE.createResults(message));
     } else {
-      $('.question-answer-form').html(TEMPLATE.createEnd(message));
+      $('.page').html(TEMPLATE.createEnd(message));
     }
   }
   
   function writeQuestion() {
-    $('.question-answer-form').html(TEMPLATE.createQuestion);
+    $('.page').html(TEMPLATE.createQuestion);
   }
 
   return {
-    handleAnswerSubmit,
+    handleSubmit,
     preloadImage,
     randomizeQuestions,
   };

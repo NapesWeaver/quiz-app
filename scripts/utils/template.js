@@ -6,7 +6,7 @@ const TEMPLATE = (function() {
 
   function createEnd(message) {
     return `
-			<form class="question-answer-form">
+			<form class="end-form">
 				<h2 class="question">${message}</h2>
 				<img src="${DATA.questions[DATA.questionIndex].image.source}" class="view-screen" alt="${DATA.questions[DATA.questionIndex].image.alt}">
 	
@@ -22,14 +22,13 @@ const TEMPLATE = (function() {
 	
   function createQuestion() {
     return `
-			<form class="question-answer-form">
+			<form class="question-form">
 				<div class="float-left">
 					<h2 class="question">${DATA.questions[DATA.questionIndex].question}</h2>
 					<img src="${DATA.questions[DATA.questionIndex].image.source}" class="view-screen" alt="${DATA.questions[DATA.questionIndex].image.alt}">
 					<div class="results">						
 						<span>You have <span class="score">${DATA.score}</span> out of ${DATA.questions.length} correct</span>		
 					</div>
-
 				</div>
 				
 				<div class="float-right">					
@@ -55,7 +54,7 @@ const TEMPLATE = (function() {
 	
   function createResults(message) {
     return `
-			<form class="question-answer-form">
+			<form class="next-form">
 				<h2 class="question">${message}</h2>
 				<img src="${DATA.questions[DATA.questionIndex].image.source}" class="view-screen" alt="${DATA.questions[DATA.questionIndex].image.alt}">
 	
@@ -71,7 +70,7 @@ const TEMPLATE = (function() {
 	
   function createStart() {
     return `
-			<form class="question-answer-form">
+			<form class="next-form">
 				<h2 class="question">Welcome abord a ten question quiz about Star Trek, the original series.</h2>
 				<img src="images/star-trek-cast.jpg" class="view-screen" alt="Bridge crew">	
 				<button class="start-submit" type="submit">START</button>
