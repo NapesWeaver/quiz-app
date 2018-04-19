@@ -28,7 +28,7 @@ const TEMPLATE = (function() {
 					<fieldset class="answers">			
 						<ul>
 							${createMultipleChoice()}
-						<ul>
+						</ul>
 					</fieldset>
 					<button class="answer-submit" type="submit">SUBMIT</button>			
 				</div>

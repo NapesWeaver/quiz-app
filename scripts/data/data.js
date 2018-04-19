@@ -90,7 +90,7 @@ const DATA = (function() {
       //   },
       // },
       // {
-      //   question: 'What is Spock\'s fathers name?',
+      //   question: 'What is Spock\'s father\'s name?',
       //   solution: 'Sarek',
       //   answers: [
       //     'Mr. Spock',
