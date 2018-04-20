@@ -45,6 +45,7 @@ const TEMPLATE = (function() {
   }
 	
   function createMultipleChoice() {
+    DATA.questions[DATA.questionIndex].answers.sort((a, b) => 0.5 - Math.random());
     return DATA.questions[DATA.questionIndex].answers.map(answer => 
       `<li>
 					<input type="radio" id="${answer}" name="answer" required="required">			     
