@@ -3,7 +3,7 @@
 'use strict';
 
 $(document).ready(function() {
-  QUIZ.preloadImage();
+  QUIZ.preloadImages();
   QUIZ.randomizeQuestions();  
   QUIZ.handleSubmit();
 });

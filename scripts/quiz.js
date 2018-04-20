@@ -24,7 +24,7 @@ const QUIZ = (function() {
     }));
   }
 
-  function preloadImage() {
+  function preloadImages() {
     DATA.preloadImg = [];
     DATA.questions.forEach(question => {
       var img = new Image();
@@ -77,7 +77,7 @@ const QUIZ = (function() {
 
   return {
     handleSubmit,
-    preloadImage,
+    preloadImages,
     randomizeQuestions,
   };
 }());
