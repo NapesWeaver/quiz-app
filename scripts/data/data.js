@@ -176,7 +176,7 @@ const DATA = (function() {
         }
       },
       {
-        message: 'You play a good game, sir.',
+        message: 'You play a good game, shipmate.',
         image: {
           src: 'images/chess.jpg',
           alt: 'Captain Kirk and Mr. Spock playing 3D chess',
