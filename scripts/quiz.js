@@ -25,9 +25,11 @@ const QUIZ = (function() {
   }
 
   function preloadImage() {
+    DATA.imgArr = [];
     DATA.questions.forEach(question => {
       var img = new Image();
       img.src = question.image.source;
+      DATA.imgArr.push(img);
     });
   }
   
