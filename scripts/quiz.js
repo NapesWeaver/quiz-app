@@ -7,21 +7,12 @@ const QUIZ = (function() {
   function gradeAnswer() {
     writeAnswer();	
     DATA.questionIndex += 1;
-  }
+  }  
 
   function handleSubmit() {
-    $('.page').on('submit', '.next-form', (event => {
-      event.preventDefault();
-      writeQuestion();
-    }));
-    $('.page').on('submit', '.question-form', (event => {
-      event.preventDefault();
-      gradeAnswer();
-    }));
-    $('.page').on('submit', '.end-form', (event => {
-      event.preventDefault();
-      resetGame();
-    }));
+    $('.page').on('submit', '.question-form', submitAnswer);
+    $('.page').on('submit', '.next-form', submitQuestion);
+    $('.page').on('submit', '.end-form', submitReset);
   }
 
   function preloadImages() {
@@ -49,6 +40,21 @@ const QUIZ = (function() {
     $('.page').html(TEMPLATE.createStart());
   }
   
+  function submitAnswer(event) {
+    event.preventDefault();
+    gradeAnswer();
+  }
+
+  function submitQuestion(event) {
+    event.preventDefault();
+    writeQuestion();    
+  } 
+  
+  function submitReset() {
+    event.preventDefault();
+    resetGame();
+  }
+
   function writeAnswer() {
   
     let message = `The correct answer is "${DATA.questions[DATA.questionIndex].solution}"`;
