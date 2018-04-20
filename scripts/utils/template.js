@@ -1,20 +1,18 @@
-/* global DATA QUIZ */
+/* global DATA */
 
 'use strict';
 
 const TEMPLATE = (function() {
 
-  function createEnd() {
+  function createEnd(index) {
     return `
 			<form class="end-form">
-				<h2 class="question">You are a Star Trek Dancing Machine</h2>
-				<img src="images/chekov-dance.jpg" class="view-screen" alt="Chekov Dancing">
-	
+				<h2 class="question">${DATA.finalResults[index].message}</h2>
+				<img src="${DATA.finalResults[index].image.src}" class="view-screen" alt="${DATA.finalResults[index].image.alt}">	
 				<div class="results">
-					<h3>The End</h3>
-					<span>You have <span class="score">${DATA.score}</span> out of ${DATA.questions.length} correct</span>		
-				</div>
-				
+					<h3>This ${DATA.questions.length} question quiz has ended...</h3>
+					<span>Your final score is <span class="score">${DATA.score}</span> out of ${DATA.questions.length} correct.</span>		
+				</div>				
 				<button class="reset" type="submit">RESET</button>
 			</form>
 		`;
@@ -25,9 +23,9 @@ const TEMPLATE = (function() {
 			<form class="question-form">
 				<div class="float-left">
 					<h2 class="question">${DATA.questions[DATA.questionIndex].question}</h2>
-					<img src="${DATA.questions[DATA.questionIndex].image.source}" class="view-screen" alt="${DATA.questions[DATA.questionIndex].image.alt}">
+					<img src="${DATA.questions[DATA.questionIndex].image.src}" class="view-screen" alt="${DATA.questions[DATA.questionIndex].image.alt}">
 					<div class="results">						
-						<span>You have <span class="score">${DATA.score}</span> out of ${DATA.questions.length} correct</span>		
+						<span>You have <span class="score">${DATA.score}</span> out of ${DATA.questions.length} correct.</span>		
 					</div>
 				</div>
 				
@@ -57,13 +55,11 @@ const TEMPLATE = (function() {
     return `
 			<form class="next-form">
 				<h2 class="question">${message}</h2>
-				<img src="${DATA.questions[DATA.questionIndex].image.source}" class="view-screen" alt="${DATA.questions[DATA.questionIndex].image.alt}">
-	
+				<img src="${DATA.questions[DATA.questionIndex].image.src}" class="view-screen" alt="${DATA.questions[DATA.questionIndex].image.alt}">	
 				<div class="results">
 					<h3>Question ${DATA.questionIndex + 1} of ${DATA.questions.length}</h3>
-					<span>You have <span class="score">${DATA.score}</span> out of ${DATA.questions.length} correct</span>		
-				</div>
-				
+					<span>You have <span class="score">${DATA.score}</span> out of ${DATA.questions.length} correct.</span>		
+				</div>				
 				<button class="next" type="submit">NEXT</button>
 			</form>
 		`;

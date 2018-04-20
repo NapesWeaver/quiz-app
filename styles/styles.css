@@ -28,13 +28,18 @@ header img {
 
 h1 {
   font-family: "star trek", Helvetica, sans-serif;
-  font-size: 1.2em;
+  font-size: 1.4em;
   color: #F7CE38;
 }
 
-h2, h3 {
+h2 {
 	line-height: 1.3em;
-	font-size: 1.2em;
+	font-size: 1.4em;
+}
+
+h3 {
+	padding-bottom: 10px;
+	font-size: 1.3em;
 }
 
 legend {
@@ -50,6 +55,7 @@ span {
 
 .score {
 	display: inline-block;
+	font-size: 1em;
 }
 
 .answers {

@@ -5,7 +5,7 @@
 const QUIZ = (function() {
 
   function gradeAnswer() {
-    scoreAnswer();	
+    writeAnswer();	
     DATA.questionIndex += 1;
   }
 
@@ -25,11 +25,16 @@ const QUIZ = (function() {
   }
 
   function preloadImage() {
-    DATA.imgArr = [];
+    DATA.preloadImg = [];
     DATA.questions.forEach(question => {
       var img = new Image();
-      img.src = question.image.source;
-      DATA.imgArr.push(img);
+      img.src = question.image.src;
+      DATA.preloadImg.push(img);
+    });
+    DATA.finalResults.forEach(result => {
+      var img = new Image();
+      img.src = result.image.src;
+      DATA.preloadImg.push(img);
     });
   }
   
@@ -44,7 +49,7 @@ const QUIZ = (function() {
     $('.page').html(TEMPLATE.createStart());
   }
   
-  function scoreAnswer() {
+  function writeAnswer() {
   
     let message = `The correct answer is "${DATA.questions[DATA.questionIndex].solution}"`;
   
@@ -54,13 +59,19 @@ const QUIZ = (function() {
     }
     $('.page').html(TEMPLATE.createResults(message));
   }
-  
+
+  function writeEnd() {
+    let index = parseInt((DATA.score / DATA.questions.length * 10) / 2);
+    console.log(index);
+    $('.page').html(TEMPLATE.createEnd(index));
+  }
+
   function writeQuestion() {
 
     if (DATA.questionIndex < DATA.questions.length) {
       $('.page').html(TEMPLATE.createQuestion);
     } else {
-      $('.page').html(TEMPLATE.createEnd());
+      writeEnd();
     }
   }
 
