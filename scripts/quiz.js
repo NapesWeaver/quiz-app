@@ -50,16 +50,16 @@ const QUIZ = (function() {
       DATA.score += 1;
       message = 'You are correct!';    
     }
-  
-    if (DATA.questionIndex < DATA.questions.length - 1) {
-      $('.page').html(TEMPLATE.createResults(message));
-    } else {
-      $('.page').html(TEMPLATE.createEnd(message));
-    }
+    $('.page').html(TEMPLATE.createResults(message));
   }
   
   function writeQuestion() {
-    $('.page').html(TEMPLATE.createQuestion);
+
+    if (DATA.questionIndex < DATA.questions.length) {
+      $('.page').html(TEMPLATE.createQuestion);
+    } else {
+      $('.page').html(TEMPLATE.createEnd());
+    }
   }
 
   return {
