@@ -30,7 +30,7 @@ const QUIZ = (function() {
   }
   
   function randomizeQuestions() {
-    DATA.questions.sort((a, b) => 0.5 - Math.random());
+    DATA.questions.sort(() => 0.5 - Math.random());
   }
   
   function resetGame() {
@@ -68,7 +68,6 @@ const QUIZ = (function() {
 
   function writeEnd() {
     let index = parseInt((DATA.score / DATA.questions.length * 10) / 2);
-    console.log(index);
     $('.page').html(TEMPLATE.createEnd(index));
   }
 
